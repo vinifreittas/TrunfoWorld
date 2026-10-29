@@ -1,7 +1,7 @@
 // ==================================================================
-// Super Trunfo - Países
-// Versão 7.5 - Modularização ++
-// Objetivo: modularizar o código e deixar ele mais escalável e profissional
+// Super Trunfo - Countries
+// Version 7.5 - Modularization ++
+// Goal: modularize the code and make it more scalable and professional
 // ==================================================================
 
 #include <stdio.h>
@@ -13,7 +13,7 @@
 #include "engine.h"
 #include "utilitarios.h"
 
-// Estilos de texto (ANSI)
+// Text styles (ANSI)
 #define NEGRITO "\033[1m"
 #define ITALICO "\033[3m"
 #define AZUL "\033[1;34m"
@@ -21,11 +21,11 @@
 #define VERMELHO "\033[1;31m"
 #define RESET "\033[0m"
 
-// Codificação pro tipo de exibição
+// Display mode encoding
 typedef enum { COMPLETO, SIMPLIFICADO } Modo_exibicao;
 
 
-/* ========================== Funcionalidades ========================== */
+/* ========================== Features ========================== */
 
 void cadastrar_carta(Lista_de_cartas *registro) {
     Carta dados;
@@ -46,7 +46,7 @@ void cadastrar_carta(Lista_de_cartas *registro) {
 
     dados.pontos_turisticos = ler_inteiro("\n N° de pontos turísticos: ", 0, 10000);
 
-    // Cálculos automáticos
+    // Automatic calculations
     dados.densidade_populacional = (float) dados.populacao / dados.area;
     dados.pib_per_capita = (float) (dados.pib * 1000000000) / dados.populacao;
     snprintf(dados.codigo, sizeof(dados.codigo), "%c%02i", dados.estado, dados.cidade);
@@ -146,7 +146,7 @@ Resultado_competicao competir_atributo_UI(Atributo atr, Carta carta, Carta opone
 
 void iniciar_partida() {
 
-    // Distribuição das cartas
+    // Card distribution
     Lista_de_cartas player1 = inicializar_lista();
     Lista_de_cartas player2 = inicializar_lista();
 
@@ -162,7 +162,7 @@ void iniciar_partida() {
         return;
     }
     
-    // Rodada
+    // Round
     int atributo, rodada = 1;
     while (player1.tamanho && player2.tamanho) {
         Carta atual = player1.cartas[(rodada - 1) % player1.tamanho];
@@ -183,7 +183,7 @@ void iniciar_partida() {
         printf("\n\nEscolha uma atributo para competir -> ");
         scanf("%i", &atributo);
         
-        // Competição
+        // Competition
         Resultado_competicao resultado = competir_atributo_UI((Atributo)atributo, atual, atual_inimigo);
         if (resultado == ERRO) { continue; }
         if (resultado == EMPATE) { rodada++; continue; }

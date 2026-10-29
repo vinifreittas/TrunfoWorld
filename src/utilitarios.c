@@ -7,7 +7,7 @@
 #define RESET "\033[0m"
 
 
-/* ========================== Impressão ========================== */
+/* ========================== Output ========================== */
 
 void limpar_tela(void) {
     printf("\033[H\033[J");
@@ -24,9 +24,9 @@ void imprimir_mensagem(char *msg, char *formatacao) {
 }
 
 
-/* ========================== Validação ========================== */
+/* ========================== Validation ========================== */
 
-// Limpa o buffer e retorna 1 se houver lixo
+// Clears the buffer and returns 1 if there is garbage input
 int limpar_buffer() {
     int c;
     int lixo = 0;

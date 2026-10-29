@@ -6,7 +6,7 @@
 #include "engine.h"
 
 
-/* ========================== Lista de Cartas  ========================== */
+/* ========================== Card List  ========================== */
 
 Lista_de_cartas inicializar_lista() {
     return (Lista_de_cartas) {NULL, 0, 0};
@@ -40,7 +40,7 @@ Lista_de_cartas copiar_lista(const Lista_de_cartas *origem) {
 }
 
 
-/* ========================== Registro ========================== */
+/* ========================== Registry ========================== */
 
 Lista_de_cartas ler_registro() {
     Lista_de_cartas lista = inicializar_lista();
@@ -70,7 +70,7 @@ bool atualizar_registro(const Lista_de_cartas *lista) {
     return (escritos == lista->tamanho);
 }
 
-/* ========================== CRUD (lista de carta) ========================== */
+/* ========================== CRUD (card list) ========================== */
 
 long long buscar_carta_por_codigo(const Lista_de_cartas *lista, const char *codigo) {
     if (!lista || !lista->cartas) return -1;
@@ -118,9 +118,9 @@ bool atualizar_carta_lista(Lista_de_cartas *lista, const char *codigo, Carta nov
 }
 
 
-/* ========================== Manipulação ========================== */
+/* ========================== Handling ========================== */
 
-// Algoritmo de Fisher-Yates pra embaralhamento
+// Fisher-Yates algorithm for shuffling
 bool embaralhar_lista(Lista_de_cartas *lista) {
     if (!lista || lista->tamanho <= 1) 
         return showError("Não é possível realizar o embaralhamento! (cartas insuficientes)");
@@ -144,13 +144,13 @@ Lista_de_cartas porcionar_lista(Lista_de_cartas lista, int numero_de_porcoes, in
     alocar_espaco(&mao, cartas_por_porcao);
     
     size_t indice_inicial = (cartas_por_porcao) * (porcao);
-    memcpy(mao.cartas, lista.cartas + indice_inicial, sizeof(Carta) * cartas_por_porcao); // Copia o bloco de cartas pra mao.
+    memcpy(mao.cartas, lista.cartas + indice_inicial, sizeof(Carta) * cartas_por_porcao); // Copies the card block to the hand.
     mao.tamanho = cartas_por_porcao;
 
     return mao;
 }
 
-/* ========================== Lógica de Jogo ========================== */
+/* ========================== Game Logic ========================== */
 
 bool distribuir_cartas(const Lista_de_cartas *lista, Lista_de_cartas *jogadores[], int qtd_jogadores) {
     if (lista->tamanho < qtd_jogadores) 
@@ -158,7 +158,7 @@ bool distribuir_cartas(const Lista_de_cartas *lista, Lista_de_cartas *jogadores[
     if (qtd_jogadores < 2)
         return showError("Jogadores insuficientes!");
 
-    // Cria uma copia de lista
+    // Creates a list copy
     Lista_de_cartas copia = copiar_lista(lista);
 
     embaralhar_lista(&copia);
@@ -175,7 +175,7 @@ Resultado_competicao competir_atributo(Atributo atr, const Carta *c1, const Cart
     double v1, v2;
     bool menor_vence = false;
 
-    // Mapeia o enum para os valores reais da struct
+    // Maps the enum to the struct's actual values
     switch (atr) {
         case POPULACAO:
             v1 = (double)c1->populacao;
@@ -196,7 +196,7 @@ Resultado_competicao competir_atributo(Atributo atr, const Carta *c1, const Cart
         case DENSIDADE_POPULACIONAL:
             v1 = c1->densidade_populacional;
             v2 = c2->densidade_populacional;
-            menor_vence = true; // Regra especial: menor densidade vence
+            menor_vence = true; // Special rule: lower density wins
             break;
         case PIB_PER_CAPITA:
             v1 = c1->pib_per_capita;

@@ -1,22 +1,22 @@
-# Versão mínima do CMake necessária
+# Minimum required CMake version
 cmake_minimum_required(VERSION 3.10)
 
-# Nome do projeto e linguagem utilizada
+# Project name and language
 project(TrunfoWorld LANGUAGES C)
 
-# Padrão do C utilizado 
+# C language standard
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-# Pasta dos cabeçalhos
+# Header files directory
 include_directories(include)
 
-# Lista dos arquivos de código fonte (.c)
+# Source files list (.c)
 set(SOURCES
     src/main.c
     src/engine.c
     src/utilitarios.c
 )
 
-# Nome do executável final e os arquivos necessários para gerá-lo
+# Final executable target and required sources
 add_executable(TrunfoWorld ${SOURCES})
