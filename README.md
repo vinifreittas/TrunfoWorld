@@ -1,53 +1,53 @@
 # 🌍 TrunfoWorld
 
-**TrunfoWorld** é uma recriação do clássico jogo de cartas **Super Trunfo – Países**, desenvolvida inteiramente em **C** e jogada diretamente no **terminal**.  
+**TrunfoWorld** is a recreation of the classic **Super Trunfo – Countries** card game, built entirely in **C** and played directly in the **terminal**.  
 
-Desafie a máquina em duelos de atributos geográficos, econômicos e demográficos e descubra quem realmente domina o mapa-múndi! 🃏
-
----
-
-## ✨ Funcionalidades
-
-- 📊 **Atributos Reais:** Compare População, Área, PIB, Pontos Turísticos e Densidade Populacional (onde a menor vence!).
-- 🖥️ **Interface Rica:** Experiência visual retro-moderna no terminal utilizando cores (ANSI escape codes) e ASCII art.
-- ⚙️ **Gerenciamento Dinâmico (CRUD):** Sistema completo para adicionar, remover e atualizar cartas de países diretamente no código ou em arquivos de registro.
-- 🎲 **Mecânica Autêntica:** Algoritmo de embaralhamento robusto (*Fisher-Yates*) e distribuição justa de porções do baralho.
-- 💾 **Persistência de Dados:** Salvamento e leitura automática do baralho via arquivos binários (`.bin`).
+Challenge the machine in duels of geographic, economic, and demographic attributes and find out who truly dominates the world map! 🃏
 
 ---
 
-## 🛠️ Tecnologias e Conceitos Utilizados
+## ✨ Features
 
-- **Linguagem:** C (Padrão C17)
-- **Ferramenta de Build:** CMake (versão 3.10 ou superior)
-- **Estruturas de Dados:** Listas Dinâmicas (Vetores Alocados Dinamicamente com `realloc`)
-- **Manipulação de Arquivos:** I/O Binário (`fread`, `fwrite`) para persistência do progresso
-- **Modularização:** Divisão limpa de responsabilidades (`engine.h/c`, `utilitarios.h/c`, `main.c`)
+- 📊 **Real Attributes:** Compare Population, Area, GDP, Tourist Attractions, and Population Density (where the lowest wins!).
+- 🖥️ **Rich Interface:** Retro-modern visual experience in the terminal using colors (ANSI escape codes) and ASCII art.
+- ⚙️ **Dynamic Management (CRUD):** Complete system to add, remove, and update country cards directly in code or in save files.
+- 🎲 **Authentic Mechanics:** Robust shuffle algorithm (*Fisher-Yates*) and fair deck partitioning.
+- 💾 **Data Persistence:** Automatic deck saving and loading via binary files (`.bin`).
 
 ---
 
-## 🚀 Como Compilar e Jogar
+## 🛠️ Technologies and Concepts Used
 
-### Pré-requisitos
-Antes de começar, você precisará ter instalado em sua máquina:
-- Um compilador C (como `gcc` ou `clang`)
-- [CMake](https://cmake.org) (versão 3.10 ou superior)
+- **Language:** C (C17 Standard)
+- **Build Tool:** CMake (version 3.10 or newer)
+- **Data Structures:** Dynamic lists (dynamically allocated arrays with `realloc`)
+- **File Handling:** Binary I/O (`fread`, `fwrite`) for progress persistence
+- **Modularization:** Clear separation of responsibilities (`engine.h/c`, `utilitarios.h/c`, `main.c`)
 
-### 1. Clonar o Repositório
+---
+
+## 🚀 How to Build and Play
+
+### Prerequisites
+Before you start, make sure you have the following installed:
+- A C compiler (such as `gcc` or `clang`)
+- [CMake](https://cmake.org) (version 3.10 or newer)
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com
 cd TrunfoWorld
 ```
 
-### 2. Configurar e Compilar com CMake
-Crie uma pasta para organizar os arquivos gerados pela compilação:
+### 2. Configure and Build with CMake
+Create a folder to keep build artifacts organized:
 ```bash
 cmake -S . -B build
 cmake --build build
 ```
 
-### 3. Executar o Jogo
-O executável será gerado dentro do diretório de build:
+### 3. Run the Game
+The executable will be generated inside the build directory:
 ```bash
 ./build/TrunfoWorld
 ```

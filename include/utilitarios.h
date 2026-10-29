@@ -5,7 +5,7 @@
 
 #define RESET "\033[0m"
 
-/* ========================== Impressão ========================== */
+/* ========================== Output ========================== */
 
 void limpar_tela(void);
 
@@ -14,7 +14,7 @@ bool showError(const char *error_msg);
 void imprimir_mensagem(char *msg, char *formatacao);
 
 
-/* ========================== Validação ========================== */
+/* ========================== Validation ========================== */
 
 int limpar_buffer(void);
 
